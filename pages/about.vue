@@ -1,8 +1,11 @@
 <template>
   <h1>About</h1>
-  <p>{{ data.hello }}</p>
+  <p v-if="hello && status === 'success'">{{ hello.world }}</p>
 </template>
 
 <script setup lang="ts">
-  const { data: hello } = await useFetch<string>("/api/hello");
+  const { status, data: hello } = await useFetch<{ world: string } | null>(
+    "/api/hello",
+    { lazy: true }
+  );
 </script>

@@ -1,5 +1,5 @@
 export default defineEventHandler((event) => {
   return {
-    hello: "Hello the world",
+    world: "Hello the world, How are you today?",
   };
 });
