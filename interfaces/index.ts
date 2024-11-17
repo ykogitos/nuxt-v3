@@ -4,3 +4,12 @@ export interface PostInterface {
   body: string;
   userId: string;
 }
+
+export interface IUsers {
+  id: number;
+  uuid: string;
+  firstname: string | null;
+  lastname: string | null;
+  email: string;
+  username: string;
+}

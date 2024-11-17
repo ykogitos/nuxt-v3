@@ -13,6 +13,10 @@
 <script setup lang="ts">
   import type { PostInterface } from "~/interfaces";
   const { data: posts } = await useFetch<PostInterface[]>(
-    "https://jsonplaceholder.typicode.com/posts?_limit=15"
+    "https://jsonplaceholder.typicode.com/posts?_limit=15",
+    {
+      lazy: true,
+      server: true,
+    }
   );
 </script>
