@@ -17,7 +17,7 @@ export default defineNitroPlugin(async (nitroApp) => {
     });
     console.log(
       "\x1b[1;32m",
-      "=> PLUGINS MARIADB",
+      "api/plugins MARIADB",
       "\x1b[42m\x1b[33m",
       "CONNECTED",
       "\x1b[0;0m",

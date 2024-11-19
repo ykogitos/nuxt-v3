@@ -5,33 +5,32 @@
     <p>Unexpected error : {{ error }}</p>
     <p>Message : {{ error.message }}</p>
   </div>
+  <div v-if="status && !users?.length">No user</div>
   <div v-for="user in users" :key="user.id">
-    <strong>
-      <nuxtLink :to="{ name: 'users-user', params: { user: user.username } }">
-        {{ user.username }}
-      </nuxtLink>
-    </strong>
-    {{ user.email }}
+    <nuxtLink
+      :to="{ name: 'users-user-edit', params: { user: user.username } }"
+    >
+      EDIT
+    </nuxtLink>
+    |
+    <nuxtLink
+      :to="{ name: 'users-user-posts', params: { user: user.username } }"
+    >
+      POST
+    </nuxtLink>
+    <div v-for="(value, key) in user" :key="key">{{ key }} => {{ value }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
   import type { IUser } from "~/interfaces";
+  const route = useRoute();
   const {
     status,
     error,
     data: users,
-  } = useFetch("/api/users", {
+  } = useFetch<IUser[]>("/api/users/" + route.params.user, {
     lazy: true,
     server: true,
-    transform: (users: IUser[]) => {
-      return users.map((user) => ({
-        id: user.id,
-        username: user.username,
-        email: user.email,
-      }));
-    },
   });
-
-  // const { data: users } = await useFetch<IUsers[]>("/api/hello");
 </script>
