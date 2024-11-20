@@ -7,6 +7,13 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: "en",
+      },
+    },
+  },
   runtimeConfig: {
     secretApi: process.env.SECRET_API,
     dbUrl: process.env.DB_URL,

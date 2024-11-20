@@ -21,17 +21,15 @@
     status,
     error,
     data: users,
-  } = useFetch("/api/users", {
+  } = useFetch<IUser[]>("/api/users", {
     lazy: true,
     server: true,
-    transform: (users: IUser[]) => {
-      return users.map((user) => ({
-        id: user.id,
-        username: user.username,
-        email: user.email,
-      }));
-    },
+    // transform: (users: IUser[]) => {
+    //   return users.map((user) => ({
+    //     id: user.id,
+    //     username: user.username,
+    //     email: user.email,
+    //   }));
+    // },
   });
-
-  // const { data: users } = await useFetch<IUsers[]>("/api/hello");
 </script>

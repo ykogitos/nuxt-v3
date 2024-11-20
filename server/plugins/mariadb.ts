@@ -10,12 +10,17 @@ export default defineNitroPlugin(async (nitroApp) => {
       user: config.dbUser,
       password: config.dbPwd,
       connectionLimit: 5,
+      idleTimeout: 0,
     });
+
     const conn = await pool.getConnection();
+
     nitroApp.hooks.hook("request", (event) => {
       event.context.$conn = conn;
     });
+
     console.log(
+      new Date().toLocaleString("fr"),
       "\x1b[1;32m",
       "api/plugins MARIADB",
       "\x1b[42m\x1b[33m",

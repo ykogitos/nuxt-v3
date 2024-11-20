@@ -2,7 +2,10 @@ import type { IUser } from "~/interfaces";
 
 export default defineEventHandler(async (event) => {
   const username = getRouterParam(event, "user");
-  const query = "SELECT * FROM users WHERE username='" + username + "'";
+  let query = "SELECT ";
+  query += "id, firstname, lastname, email, username ";
+  query += "FROM users ";
+  query += "WHERE username='" + username + "'";
   const user = await event.context.$conn.query(query);
   return user as IUser[];
 });

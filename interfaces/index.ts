@@ -7,9 +7,9 @@ export interface PostInterface {
 
 export interface IUser {
   id: number;
-  uuid: string;
-  firstname: string | null;
-  lastname: string | null;
+  uuid?: string;
+  firstname?: string;
+  lastname?: string;
   email: string;
   username: string;
 }
