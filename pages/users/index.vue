@@ -21,7 +21,7 @@
     status,
     error,
     data: users,
-  } = useFetch<IUser[]>("/api/users", {
+  } = await useFetch<IUser[]>("/api/users", {
     lazy: true,
     server: true,
     // transform: (users: IUser[]) => {
