@@ -1,5 +1,6 @@
 <template>
   <h1>USERS {{ status }} {{ $route.params }}</h1>
+  <p>ENV: {{ env }}</p>
   <!-- <p v-if="hello && status === 'success'">{{ hello.world }}</p> -->
   <div v-if="error">
     <p>Unexpected error : {{ error }}</p>
@@ -17,6 +18,7 @@
 
 <script setup lang="ts">
   import type { IUser } from "~/interfaces";
+  const env = process.env.NODE_ENV;
   const {
     status,
     error,

@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     // plugins: ["~/server/plugins/sql.ts"],
     prerender: {
       routes: ["/"],
-      ignore: ["/blog", "/blog/*"],
+      ignore: ["/users", "/users/*"],
     },
   },
 });
